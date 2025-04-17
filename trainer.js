@@ -2,6 +2,7 @@ import { sampleData } from "./data.js"
 
 const data = sampleData
 const convergenceThreshold = 0.1
+const iterations = 10000
 
 const trainModel = (numOfIterations) => {
     // iterate over the number of iterations
@@ -58,32 +59,4 @@ const trainModel = (numOfIterations) => {
     }
 }
 
-trainModel(1000)
-
-// import { sampleData } from "./data.js"
-//
-// const data = sampleData
-//
-// const trainModel = (numOfIterations) => {
-//     let weight = data.weight
-//     let bias = data.bias
-//     for (let i = 0; i < numOfIterations; i++) {
-//         const losses = []
-//         for (let j = 0; j < data.examples.length; j++) {
-//             const feature = data.examples[j].feature
-//             const label = data.examples[j].label
-//             const prediction = (weight * feature) + bias
-//             losses.push({ loss: prediction - label, feature: feature, label: label })
-//         }
-//         console.log("losses:", losses)
-//         const loss2 = losses.reduce((acc, curr) => {
-//             acc += Math.pow(curr.loss, 2)
-//             return acc
-//         }, 0);
-//         console.log("loss2:", loss2)
-//         const mse = loss2 / data.examples.length
-//         console.log("mse:", mse.toFixed(2))
-//     }
-// }
-//
-// trainModel(1)
+trainModel(iterations)
